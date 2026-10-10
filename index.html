@@ -1,156 +1,157 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>StyleForge — CSS Design Studio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+        <title>StyleForge — CSS Design Studio</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/responsive.css">
 
-    <!-- Application JavaScript -->
-    <script src="js/app.js" defer></script>
-</head>
+        <!-- Application JavaScript -->
+        <script src="js/app.js" defer></script>
 
-<body>
+    </head>
 
-    <!-- HEADER -->
-    <header class="app-header">
-        <div class="brand">
-            <h1>StyleForge</h1>
-            <p>Your personal CSS design studio</p>
-        </div>
-        <div class="header-actions">
-            <button type="button" class="secondary-button" id="save-btn">Save</button>
-            <button type="button" class="secondary-button" id="reset-btn">Reset</button>
-            <button type="button" class="secondary-button" id="theme-btn">Theme</button>
-        </div>
-    </header>
+    <body>
 
-    <main>
+        <!-- HEADER -->
+        <header class="app-header">
+            <div class="brand">
+                <h1>StyleForge</h1>
+                <p>Your personal CSS design studio</p>
+            </div>
+            <div class="header-actions">
+                <button type="button" class="secondary-button" id="save-btn">Save</button>
+                <button type="button" class="secondary-button" id="reset-btn">Reset</button>
+                <button type="button" class="secondary-button" id="theme-btn">Theme</button>
+            </div>
+        </header>
 
-        <!-- EDITOR: CONTROLS + PREVIEW -->
-        <div class="editor-layout">
+        <main>
 
-            <!-- LEFT: DESIGN CONTROLS -->
-            <aside class="controls-panel" aria-labelledby="controls-title">
+            <!-- EDITOR: CONTROLS + PREVIEW -->
+            <div class="editor-layout">
+
+                <!-- LEFT: DESIGN CONTROLS -->
+                <aside class="controls-panel">
                 <h2 id="controls-title">Design Controls</h2>
 
-                <!-- Component Selector -->
+            <!-- Component Selector -->
+            <div class="control-group">
+                <label for="component-select">Choose Component</label>
+                <select id="component-select" name="component">
+                    <option value="card">Card</option>
+                    <option value="button">Button</option>
+                    <option value="input">Input</option>
+                </select>
+            </div>
+
+            <!-- Colors -->
+            <section class="control-section">
+                <h3>Colors</h3>
                 <div class="control-group">
-                    <label for="component-select">Choose Component</label>
-                    <select id="component-select" name="component">
-                        <option value="card">Card</option>
-                        <option value="button">Button</option>
-                        <option value="input">Input</option>
+                    <label for="bg-color">Background Color</label>
+                    <input type="color" id="bg-color" name="backgroundColor" value="#FFFFFF">
+                </div>
+
+                <div class="control-group">
+                    <label for="text-color">Text Color</label>
+                    <input type="color" id="text-color" name="textColor" value="#17133B">
+                </div>
+
+                <div class="control-group">
+                    <label for="accent-color">Accent Color</label>
+                    <input type="color" id="accent-color" name="accentColor" value="#7C3AED">
+                </div>
+            </section>
+
+            <!-- Typography -->
+            <section class="control-section">
+                <h3>Typography</h3>
+
+                <div class="control-group">
+                    <label for="font-family">Font Family</label>
+                    <select id="font-family" name="fontFamily">
+                        <option value="Inter, sans-serif">Inter</option>
+                        <option value="Arial, sans-serif">Arial</option>
+                        <option value="Georgia, serif">Georgia</option>
+                        <option value="'Courier New', monospace">Courier New</option>
                     </select>
                 </div>
 
-                <!-- Colors -->
-                <section class="control-section">
-                    <h3>Colors</h3>
-                    <div class="control-group">
-                        <label for="bg-color">Background Color</label>
-                        <input type="color" id="bg-color" name="backgroundColor" value="#FFFFFF">
-                    </div>
+                <div class="control-group">
+                    <label for="font-size">Font Size: <span id="font-size-value">16px</span></label>
+                    <input type="range" id="font-size" name="fontSize" min="12" max="32" value="16">
+                </div>
 
-                    <div class="control-group">
-                        <label for="text-color">Text Color</label>
-                        <input type="color" id="text-color" name="textColor" value="#17133B">
-                    </div>
-
-                    <div class="control-group">
-                        <label for="accent-color">Accent Color</label>
-                        <input type="color" id="accent-color" name="accentColor" value="#7C3AED">
-                    </div>
-                </section>
-
-                <!-- Typography -->
-                <section class="control-section">
-                    <h3>Typography</h3>
-
-                    <div class="control-group">
-                        <label for="font-family">Font Family</label>
-                        <select id="font-family" name="fontFamily">
-                            <option value="Inter, sans-serif">Inter</option>
-                            <option value="Arial, sans-serif">Arial</option>
-                            <option value="Georgia, serif">Georgia</option>
-                            <option value="'Courier New', monospace">Courier New</option>
-                        </select>
-                    </div>
-
-                    <div class="control-group">
-                        <label for="font-size">Font Size: <span id="font-size-value">16px</span></label>
-                        <input type="range" id="font-size" name="fontSize" min="12" max="32" value="16">
-                    </div>
-
-                    <div class="control-group">
-                        <label for="font-weight">Font Weight</label>
-                        <select id="font-weight" name="fontWeight">
-                            <option value="400">Regular</option>
-                            <option value="500">Medium</option>
-                            <option value="600">Semi-bold</option>
-                            <option value="700">Bold</option>
-                        </select>
-                    </div>
-                </section>
-
-                <!-- Spacing and Shape -->
-                <section class="control-section">
-                    <h3>Spacing &amp; Shape</h3>
-
-                    <div class="control-group">
-                        <label for="padding">Padding: <span id="padding-value">24px</span></label>
-                        <input type="range" id="padding" name="padding" min="0" max="64" value="24">
-                    </div>
-
-                    <div class="control-group">
-                        <label for="border-radius">Border Radius: <span id="radius-value">12px</span></label>
-                        <input type="range" id="border-radius" name="borderRadius" min="0" max="40" value="12">
-                    </div>
-
-                    <div class="control-group">
-                        <label for="border-width">Border Width: <span id="border-width-value">1px</span></label>
-                        <input type="range" id="border-width" name="borderWidth" min="0" max="10" value="1">
-                    </div>
-                </section>
-            </aside>
-
-            <!-- RIGHT: LIVE PREVIEW -->
-            <section class="preview-panel" aria-labelledby="preview-title">
-                <h2 id="preview-title">Live Preview</h2>
-                <p class="text-muted">Changes to your design will appear here.</p>
-
-                <div class="preview-area" id="preview-area">
-
-                    <!-- Card Preview -->
-                    <article class="preview-card" id="preview-card">
-                        <h3 id="preview-heading">Your Design</h3>
-                        <p id="preview-description">Customize this component using the controls.</p>
-                        <button type="button" class="preview-button" id="preview-button">Get Started</button>
-                        <input type="text" class="preview-input" id="preview-input" placeholder="Example input" aria-label="Example input preview">
-                    </article>
+                <div class="control-group">
+                    <label for="font-weight">Font Weight</label>
+                    <select id="font-weight" name="fontWeight">
+                        <option value="400">Regular</option>
+                        <option value="500">Medium</option>
+                        <option value="600">Semi-bold</option>
+                        <option value="700">Bold</option>
+                    </select>
                 </div>
             </section>
-        </div>
 
-        <!-- GENERATED CSS: FULL WIDTH BELOW -->
-        <section class="code-panel" aria-labelledby="code-title">
-            <div class="code-panel-header">
-                <div>
-                    <h2 id="code-title">Generated CSS</h2>
-                    <p class="text-muted">Your CSS code will appear here as you customize your design.</p>
+            <!-- Spacing and Shape -->
+            <section class="control-section">
+                <h3>Spacing &amp; Shape</h3>
+
+                <div class="control-group">
+                    <label for="padding">Padding: <span id="padding-value">24px</span></label>
+                    <input type="range" id="padding" name="padding" min="0" max="64" value="24">
                 </div>
-                <button type="button" class="copy-button" id="copy-btn">Copy CSS</button>
+
+                <div class="control-group">
+                    <label for="border-radius">Border Radius: <span id="radius-value">12px</span></label>
+                    <input type="range" id="border-radius" name="borderRadius" min="0" max="40" value="12">
+                </div>
+
+                <div class="control-group">
+                    <label for="border-width">Border Width: <span id="border-width-value">1px</span></label>
+                    <input type="range" id="border-width" name="borderWidth" min="0" max="10" value="1">
+                </div>
+            </section>
+        </aside>
+
+        <!-- RIGHT: LIVE PREVIEW -->
+        <section class="preview-panel">
+            <h2 id="preview-title">Live Preview</h2>
+            <p class="text-muted">Changes to your design will appear here.</p>
+
+            <div class="preview-area" id="preview-area">
+
+                <!-- Card Preview -->
+                <article class="preview-card" id="preview-card">
+                    <h3 id="preview-heading">Your Design</h3>
+                    <p id="preview-description">Customize this component using the controls.</p>
+                    <button type="button" class="preview-button" id="preview-button">Get Started</button>
+                    <input type="text" class="preview-input" id="preview-input" placeholder="Example input">
+                </article>
             </div>
-            <pre><code id="generated-code">/* Your generated CSS will appear here */</code></pre>
         </section>
-    </main>
+    </div>
+
+    <!-- GENERATED CSS: FULL WIDTH BELOW -->
+    <section class="code-panel">
+        <div class="code-panel-header">
+            <div>
+                <h2 id="code-title">Generated CSS</h2>
+                <p class="text-muted">Your CSS code will appear here as you customize your design.</p>
+            </div>
+            <button type="button" class="copy-button" id="copy-btn">Copy CSS</button>
+        </div>
+        <pre><code id="generated-code">/* Generated CSS will appear here */</code></pre>
+    </section>
+</main>
+
 </body>
 </html>
