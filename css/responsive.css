@@ -1,0 +1,207 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/*SMALL DESKTOPS & LAPTOPS*/
+
+@media (max-width: 1100px) {
+    body {
+        padding: 18px;
+    }
+
+    .editor-layout {
+        grid-template-columns: minmax(240px, 290px) minmax(0, 1fr);
+        gap: 18px;
+    }
+
+    .controls-panel,
+    .preview-panel,
+    .code-panel {
+        padding: 20px;
+    }
+
+    .preview-area,
+    .preview-canvas {
+        padding: 20px;
+    }
+}
+
+/* TABLETS */
+
+@media (max-width: 900px) {
+    body {
+        padding: 14px;
+    }
+
+    .app-header {
+        padding: 16px 20px;
+        gap: 14px;
+    }
+
+    .app-header h1 {
+        font-size: 1.4rem;
+    }
+
+    .editor-layout {
+        grid-template-columns: minmax(210px, 260px) minmax(0, 1fr);
+        gap: 14px;
+    }
+
+    .controls-panel,
+    .preview-panel,
+    .code-panel {
+        padding: 16px;
+    }
+
+    .preview-area,
+    .preview-canvas {
+        min-height: 280px;
+        padding: 16px;
+    }
+
+    .preview-card {
+        padding: 18px;
+    }
+}
+
+/* PHONES & SMALL TABLETS*/
+
+@media (max-width: 700px) {
+    body {
+        padding: 12px;
+    }
+
+    /* Header */
+    .app-header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px;
+        margin-bottom: 16px;
+    }
+
+    .app-header h1 {
+        font-size: 1.35rem;
+    }
+
+    .header-actions {
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .header-actions button {
+        flex: 1;
+    }
+
+    /* Stack controls and preview vertically */
+    .editor-layout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+    }
+
+    .controls-panel {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .preview-panel {
+        grid-column: 1;
+        grid-row: 2;
+
+        /* Sticky positioning is unsuitable for this layout */
+        position: static;
+        top: auto;
+        max-height: none;
+        overflow: visible;
+    }
+
+    /* Generated CSS follows both panels */
+    .code-panel {
+        width: 100%;
+        margin-top: 16px;
+    }
+
+    .controls-panel,
+    .preview-panel,
+    .code-panel {
+        padding: 16px;
+    }
+
+    .preview-area,
+    .preview-canvas {
+        min-height: 240px;
+        padding: 16px;
+    }
+
+    .preview-card {
+        padding: 16px;
+    }
+
+    /* Keep code scrollable instead of stretching the page */
+    .code-panel pre {
+        max-width: 100%;
+        font-size: 0.8rem;
+    }
+}
+
+/* VERY SMALL PHONES */
+
+@media (max-width: 400px) {
+    body {
+        padding: 8px;
+    }
+
+    .app-header h1 {
+        font-size: 1.2rem;
+    }
+
+    .header-actions {
+        gap: 6px;
+    }
+
+    .header-actions button,
+    .button-row button {
+        padding: 9px 10px;
+        font-size: 0.85rem;
+    }
+
+    .controls-panel,
+    .preview-panel,
+    .code-panel {
+        padding: 12px;
+        border-radius: 10px;
+    }
+
+    .controls-panel h2,
+    .preview-panel h2,
+    .code-panel h2 {
+        font-size: 1.05rem;
+    }
+
+    .control-group {
+        margin-bottom: 16px;
+    }
+
+    .preview-area,
+    .preview-canvas {
+        min-height: 200px;
+        padding: 12px;
+    }
+
+    .preview-card {
+        padding: 12px;
+    }
+
+    .code-panel-header {
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .copy-button {
+        padding: 9px 12px;
+        font-size: 0.85rem;
+    }
+}
